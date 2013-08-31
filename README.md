@@ -1,7 +1,7 @@
 Playground
 ==========
 
- - scala         // scala play graound
-   - README.txt  // README
-   - build.sbt   // build configuration
-   + src         // scala sources/tests
+ - scala         # scala play ground
+   - README.txt  # README
+   - build.sbt   # build configuration
+   + src         # scala sources/tests
