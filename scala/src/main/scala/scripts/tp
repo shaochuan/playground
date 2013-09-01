@@ -1,0 +1,44 @@
+#!/bin/sh
+exec scala "$0" "$@"
+!#
+import scala.io.Source
+
+object PrettyTabPrint {
+ 
+  /**
+   * Calculate length for each string in iterable, and return the maximal one.
+   */
+  def getMaxLength(strings: Iterable[String]) : Int = {
+    val lengths = strings.map(s => s.length)
+    lengths.reduceLeft((x, y) => x.max(y))
+  }
+
+  /**
+   * Pretty print a row.
+   */
+  def prettyPrintRow(maxLengths: Iterable[Int], row: Iterable[String]) : Unit = {
+    for ((maxLength, string) <- maxLengths zip row) {
+      val numSpaces = maxLength - string.length + 2
+      val padding = " " * numSpaces
+      print(string + padding)
+    }
+    println()
+  }
+
+  /**
+   * Main entry of the script.
+   */
+  def main(args: Array[String]) : Unit = {
+    val rows = Source.stdin.getLines.map(
+                                s => s.split('\t')
+                                ).toList
+    val columns = rows.transpose
+
+    val maxLengths = columns.map(getMaxLength)
+
+    val prettyPrint = prettyPrintRow(maxLengths, _: Iterable[String])
+    
+    for (row <- rows) prettyPrint(row)  
+  }
+}
+PrettyTabPrint.main(args)
