@@ -1,7 +1,5 @@
 package algo;
 
-import scala.collection.mutable.MutableList
-
 /**
  * Solution for https://oj.leetcode.com/problems/sort-list/
  * @author shaochuan.wang
