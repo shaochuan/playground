@@ -7,9 +7,9 @@ Prerequisites
   The following packages have to be installed correctly.
 
     - Java 1.6.x
-    - Scala 2.10.2
-    - scalatest_2.10-1.9.1
-    - sbt 0.12.2
+    - Scala 2.11.1
+    - scalatest_2.11-2.2.0
+    - sbt 0.13.5
 
 How to run
 ==========
